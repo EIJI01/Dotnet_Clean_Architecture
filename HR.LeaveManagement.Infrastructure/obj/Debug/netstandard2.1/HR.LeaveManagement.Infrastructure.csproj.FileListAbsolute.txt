@@ -1,0 +1,9 @@
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\bin\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.deps.json
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\bin\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.dll
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\bin\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.pdb
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\obj\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\obj\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.AssemblyInfoInputs.cache
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\obj\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.AssemblyInfo.cs
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\obj\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\obj\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.dll
+C:\Practice-programming\back-end\Clean-Architecture\HR.LeaveManagement\HR.LeaveManagement.Infrastructure\obj\Debug\netstandard2.1\HR.LeaveManagement.Infrastructure.pdb

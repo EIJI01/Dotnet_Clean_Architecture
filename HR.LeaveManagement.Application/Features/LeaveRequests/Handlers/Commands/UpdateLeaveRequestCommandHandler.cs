@@ -1,17 +1,21 @@
 ﻿using AutoMapper;
 using HR.LeaveManagement.Application.DTOs.LeaveRequest.Validators;
+using HR.LeaveManagement.Application.Exceptions;
 using HR.LeaveManagement.Application.Features.LeaveRequests.Requests.Commands;
 using HR.LeaveManagement.Application.Persistence.Contacts;
+using HR.LeaveManagement.Application.Responses;
+using HR.LeaveManagement.Domain;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Commands
 {
-    public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveRequestCommand, Unit>
+    public class UpdateLeaveRequestCommandHandler : IRequestHandler<UpdateLeaveRequestCommand, BaseCommandResponse>
     {
         private readonly ILeaveRequestRepository _leaveRequestRepository;
         private readonly ILeaveTypeRepository _leaveTypeRepository;
@@ -23,14 +27,17 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Command
             _mapper = mapper;
             _leaveTypeRepository = leaveTypeRepository;
         }
-        public async Task<Unit> Handle(UpdateLeaveRequestCommand request, CancellationToken cancellationToken)
+        public async Task<BaseCommandResponse> Handle(UpdateLeaveRequestCommand request, CancellationToken cancellationToken)
         {
+            var response = new BaseCommandResponse();
             var validator = new UpdateLeaveRequestDtoValidator(_leaveTypeRepository);
             var validationResult = await validator.ValidateAsync(request.LeaveRequestDto);
             if (!validationResult.IsValid)
-                throw new Exception();
-            
-
+            {
+                response.Success = false;
+                response.Message = "Updation Failed";
+                response.Errors = validationResult.Errors.Select(p => p.ErrorMessage).ToList();
+            }
             var leaveRequest = await _leaveRequestRepository.Get(request.Id);
             if (request.LeaveRequestDto != null)
             {
@@ -40,7 +47,10 @@ namespace HR.LeaveManagement.Application.Features.LeaveRequests.Handlers.Command
             {
                 await _leaveRequestRepository.ChangeApprovalStatus(leaveRequest, request.ChangeLeaveRequestApprovalDto.Approved);
             }
-            return Unit.Value;
+            response.Success = true;
+            response.Message = "Updation Sucessful";
+            response.Id = leaveRequest.Id;
+            return response;
         }
     }
 }
